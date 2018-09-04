@@ -47,10 +47,7 @@ def moving_average(a, w=10):
 # 生成模拟数据
 train_X = np.linspace(-1, 1, 100)
 train_Y = 2 * train_X + np.random.randn(*train_X.shape) * 0.3  # y=2x，但是加入了噪声
-# 图形显示
-plt.plot(train_X, train_Y, 'ro', label='Original data')
-plt.legend()
-plt.show()
+
 tf.reset_default_graph()
 # 创建模型
 # 占位符
@@ -86,26 +83,8 @@ with tf.Session() as sess:
             if not (loss == "NA"):
                 plotdata["batchsize"].append(epoch)
                 plotdata["loss"].append(loss)
-    print(" Finished!")
     saver.save(sess, savedir + "linermodel.ckpt")
-    print("cost=", sess.run(cost, feed_dict={X: train_X, Y: train_Y}), "W=", sess.run(W), "b=", sess.run(b))
-    # print ("cost:",cost.eval({X: train_X, Y: train_Y}))
-    # 图形显示
-    plt.plot(train_X, train_Y, 'ro', label='Original data')
-    plt.plot(train_X, sess.run(W) * train_X + sess.run(b), label='Fitted line')
-    plt.legend()
-    plt.show()
-
-    plotdata["avgloss"] = moving_average(plotdata["loss"])
-    plt.figure(1)
-    plt.subplot(211)
-    plt.plot(plotdata["batchsize"], plotdata["avgloss"], 'b--')
-    plt.xlabel('Minibatch number')
-    plt.ylabel('Loss')
-    plt.title('Minibatch run vs. Training loss')
-
-    plt.show()
-
+    
 # 重启一个session 如下代码用于预测新数据
 
 with tf.Session() as sess2:
@@ -137,9 +116,10 @@ with tf.Session() as sess2:
 
 ![工具说明](./time3.png)  
 
-##### 第一行箭头用来测量一段op的时间  
-##### 第二行十字标识用于左右拖动
-##### 第三行上下箭头，上下拖动可以缩放图中结构
+##### 第一行selection1(箭头)用来选取指定区域的op显示在下方
+##### 第二行pan2(十字标识)用于左右拖动
+##### 第三行zoom3(上下箭头)，上下拖动可以缩放图中结构
+##### 第四行timing4(区间标识)，可以截取一段区间计算该区间时间长度
 
 
 ### 参考资料
