@@ -127,11 +127,11 @@ with tf.Session() as sess2:
 ### timeline图的使用说明  
 1. timeline显示的简单实例1  
 
-![timeline显示的简单实例1] (./time1.png)  
+![timeline显示的简单实例1](./time1.png)  
 
 2. timeline显示的简单实例2  
 
-![timeline显示的简单实例2] (./time2.png)  
+![timeline显示的简单实例2](./time2.png)  
 
 3. timeline的工具说明  
 
