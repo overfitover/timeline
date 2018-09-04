@@ -125,20 +125,6 @@ with tf.Session() as sess2:
 这段代码同样会生成timeline.json文件。不同之处在于这段代码是加载训练模型预测的过程，相当于只有前向传播过程，没有反向传播过程。  
 
 ### timeline图的使用说明  
-1. ![timeline显示的简单实例1](./time1.png)  
-
-2. ![timeline显示的简单实例2](./time2.png)  
-
-
-### 参考资料
-
-1. https://www.jianshu.com/p/937a0ce99f56  
-2. https://towardsdatascience.com/howto-profile-tensorflow-1a49fb18073d  
-3. chrome://tracing/  
-
-
-
-
 
 
 
